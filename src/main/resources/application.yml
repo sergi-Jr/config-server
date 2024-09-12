@@ -1,1 +1,16 @@
-spring.application.name=Configuration Server
+spring:
+  application:
+    name: config-server
+  profiles:
+    active:
+      - native, git
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        git:
+          uri: https://github.com/sergi-Jr/services-config.git
+          searchPaths: lecturerservice
+server:
+  port: 7070
